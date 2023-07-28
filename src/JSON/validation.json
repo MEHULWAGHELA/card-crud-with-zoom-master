@@ -3,11 +3,11 @@
         "name": "title",
         "conditions": [
             {
-                "condition": "!obj.title || obj.title =='' ",
+                "condition": "!value.obj.title || value.obj.title =='' ",
                 "error": "Title is require"
             },
             {
-                "condition": "obj.title && obj.title !='' ",
+                "condition": "value.obj.title && value.obj.title !='' ",
                 "error": ""
             }
         ]
@@ -16,24 +16,11 @@
         "name": "subtitle",
         "conditions": [
             {
-                "condition": "!obj.title || obj.title =='' ",
-                "error": "obj is require"
+                "condition": "!value.obj.subtitle || value.obj.subtitle =='' ",
+                "error": "Subtitle is require"
             },
             {
-                "condition": "obj.title && obj.title !='' ",
-                "error": ""
-            }
-        ]
-    },
-    {
-        "name": "button",
-        "conditions": [
-            {
-                "condition": "!obj.button || obj.button =='' ",
-                "error": "obj is require"
-            },
-            {
-                "condition": "obj.button && obj.button !='' ",
+                "condition": "value.obj.subtitle && value.obj.subtitle !='' ",
                 "error": ""
             }
         ]
@@ -42,11 +29,11 @@
         "name": "information",
         "conditions": [
             {
-                "condition": "!obj.information || obj.information =='' ",
+                "condition": "!value.obj.information || value.obj.information =='' ",
                 "error": "information is require"
             },
             {
-                "condition": "obj.information && obj.information !='' ",
+                "condition": "value.obj.information && value.obj.information !='' ",
                 "error": ""
             }
         ]
@@ -55,11 +42,11 @@
         "name": "image",
         "conditions": [
             {
-                "condition": "!obj.image || obj.image =='' ",
+                "condition": "!value.obj.image || value.obj.image =='' ",
                 "error": "image is require"
             },
             {
-                "condition": "obj.image && obj.image !='' ",
+                "condition": "value.obj.image && value.obj.image !='' ",
                 "error": ""
             }
         ]

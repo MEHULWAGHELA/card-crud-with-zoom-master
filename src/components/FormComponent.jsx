@@ -22,13 +22,13 @@ const FormComponent = () => {
             value.obj[e.target.name] = e.target.value
         }
         value.setobj({ ...value.obj })
-        // validate(e.target.name)
+        validate(e.target.name)
     }
 
     const save = (e) => {
-        // for (let x of Object.keys(value.obj)) {
-        //     validate(x)
-        // }
+        for (let x of Object.keys(value.obj)) {
+            validate(x)
+        }
         e.preventDefault()
         if (value.editid == 0) {
             value.count = value.count + 1
@@ -48,18 +48,20 @@ const FormComponent = () => {
         fileref.current.value = ""
     }
 
-    // const validate = (name) => {
-    //     let validationobj = validationdata.find((x) => x.name == name)
-    //     let validationerror = validationobj.conditions.find((x) => eval(x.condition))
-    //     if (validationobj) {
-    //         if (validationerror) {
-    //             errorobj[name] = validationerror.error
-    //         }
-    //         else {
-    //             delete errorobj[name]
-    //         }
-    //     }
-    // }
+    const validate = (name) => {
+        let validationobj = validationdata.find((x) => x.name == name)
+        let validationerror = validationobj.conditions.find((x) => eval(x.condition))
+        if (validationerror) {
+                if (validationobj) {
+                errorobj[name] = validationerror.error
+            }
+            else {
+                delete errorobj[name]
+            }
+        }
+        seterrorobj({ ...errorobj })
+        console.log(errorobj)
+    }
 
     const openform = () => {
         setformposition(false)
