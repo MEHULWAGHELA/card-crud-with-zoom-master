@@ -1,0 +1,67 @@
+[
+    {
+        "name": "title",
+        "conditions": [
+            {
+                "condition": "!obj.title || obj.title =='' ",
+                "error": "Title is require"
+            },
+            {
+                "condition": "obj.title && obj.title !='' ",
+                "error": ""
+            }
+        ]
+    },
+    {
+        "name": "subtitle",
+        "conditions": [
+            {
+                "condition": "!obj.title || obj.title =='' ",
+                "error": "obj is require"
+            },
+            {
+                "condition": "obj.title && obj.title !='' ",
+                "error": ""
+            }
+        ]
+    },
+    {
+        "name": "button",
+        "conditions": [
+            {
+                "condition": "!obj.button || obj.button =='' ",
+                "error": "obj is require"
+            },
+            {
+                "condition": "obj.button && obj.button !='' ",
+                "error": ""
+            }
+        ]
+    },
+    {
+        "name": "information",
+        "conditions": [
+            {
+                "condition": "!obj.information || obj.information =='' ",
+                "error": "information is require"
+            },
+            {
+                "condition": "obj.information && obj.information !='' ",
+                "error": ""
+            }
+        ]
+    },
+    {
+        "name": "image",
+        "conditions": [
+            {
+                "condition": "!obj.image || obj.image =='' ",
+                "error": "image is require"
+            },
+            {
+                "condition": "obj.image && obj.image !='' ",
+                "error": ""
+            }
+        ]
+    }
+]

@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.modal-dialog {
+  max-width: 950px;
+}
+
+
+.modal {
+  --bs-modal-bg: transparent;
+  --bs-modal-border-color: transparent;
+  --bs-modal-footer-border-color: transparent;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 10px;
+}
+
+
+.modal-body {
+  padding: 0;
+}
