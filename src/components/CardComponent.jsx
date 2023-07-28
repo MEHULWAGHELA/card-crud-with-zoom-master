@@ -18,8 +18,7 @@ const CardComponent = (args) => {
         value.setobj({ ...value.obj })
     }
     const zoomimage = async (id) => {
-        console.log((value.array.find(x => x.id == id)))
-        // setzoom((value.array.find(x => x.id == id)).image)
+        setzoom((value.array.find(x => x.id == id)).image)
         toggle()
     }
     return (
@@ -33,7 +32,8 @@ const CardComponent = (args) => {
                                     alt="Sample"
                                     src={x.image}
                                     height="250"
-                                    onClick={() => zoomimage(i)}
+                                    style={{height:'300px',width:"100%",objectFit:"cover",objectPosition:"top left"}}
+                                    onClick={() => zoomimage(x.id)}
                                 />
                                 <CardBody>
                                     <CardTitle tag="h5">
@@ -48,10 +48,10 @@ const CardComponent = (args) => {
                                     <CardText>
                                         {x.information}
                                     </CardText>
-                                    <Button className="me-2" onClick={() => editfunction(x.id)}>
+                                    <Button className="me-2 bg-warning" onClick={() => editfunction(x.id)}>
                                         Edit
                                     </Button>
-                                    <Button onClick={() => deletefunction(x.id)} >
+                                    <Button className='bg-danger' onClick={() => deletefunction(x.id)} >
                                         Delete
                                     </Button>
                                 </CardBody>
@@ -64,7 +64,8 @@ const CardComponent = (args) => {
                 <Modal isOpen={modal} toggle={toggle} {...args} className='bg-transparent'>
                     <ModalHeader toggle={toggle} className='bg-transparent'></ModalHeader>
                     <ModalBody>
-                        <img src={zoom || ''} alt="" className='w-100 rounded-3' />
+                        <img src={zoom || ''} alt="" className='w-100 rounded-3' 
+                                    style={{height:'520px',width:"100%",objectFit:"cover",objectPosition:"top left"}} />
                     </ModalBody>
                 </Modal>
             </div>

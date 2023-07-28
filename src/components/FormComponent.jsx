@@ -7,7 +7,7 @@ const FormComponent = () => {
     let value = useContext(Cardcontext)
     const fileref = useRef()
     let [errorobj, seterrorobj] = useState({})
-    let [formpostion, setformposition] = useState(true)
+    let [formposition, setformposition] = useState(true)
     const getBase64 = (file) => new Promise(function (resolve, reject) {
         let reader = new FileReader();
         reader.readAsDataURL(file);
@@ -61,23 +61,23 @@ const FormComponent = () => {
     //     }
     // }
 
-    // const openform = () => {
-    //     setformposition(true)
-    // }
+    const openform = () => {
+        setformposition(false)
+    }
 
-    // const closeform = () => {
-    //     setformposition(false)
-    // }
+    const closeform = () => {
+        setformposition(true)
+    }
 
     return (
         <div>
-            <div className="container text-bg-dark rounded-3 py-5 w-50 my-3">
+            <div className="container text-bg-dark rounded-3 py-2 px-5 w-50 my-3">
                 <div>
-                    <h1 className='text-center py-3'>Form</h1>
-                    {/* <BsFillArrowDownCircleFill />
-                    <BsFillArrowUpCircleFill /> */}
+                    <h1 className='text-center py-3'>Form
+                        {formposition ? <BsFillArrowDownCircleFill onClick={openform} className='mx-2' /> : <BsFillArrowUpCircleFill onClick={closeform} className='mx-2' />}
+                    </h1>
                 </div>
-                <Form className='px-3'>
+                <Form className='px-3' style={{ height: formposition ? "0px" : "auto", overflow: "hidden" }}>
                     <Row>
                         <Col md={6}>
                             <FormGroup>
@@ -113,7 +113,7 @@ const FormComponent = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={6}>
+                        <Col md={12}>
                             <FormGroup>
                                 <Label for="image" className='fs-5'>
                                     Image
@@ -129,22 +129,6 @@ const FormComponent = () => {
                                 />
                                 <span>{errorobj.image}</span>
                             </FormGroup>
-                        </Col>
-                        <Col md={6}>
-                            <FormGroup>
-                                <Label for="button" className='fs-5'>
-                                    Button
-                                </Label>
-                                <Input
-                                    id="button"
-                                    name="button"
-                                    type="text"
-                                    value={value.obj.button || ""}
-                                    placeholder='Add Button'
-                                    onChange={changedata}
-                                />
-                            </FormGroup>
-                            <span>{errorobj.button}</span>
                         </Col>
                     </Row>
                     <Row>
@@ -165,9 +149,9 @@ const FormComponent = () => {
                             <span>{errorobj.information}</span>
                         </Col>
                     </Row>
-                    <div className='text-center'>
-                        <Button className='' onClick={save}>
-                            Sign in
+                    <div className='text-center my-2'>
+                        <Button className='text-bg-info' onClick={save}>
+                            Create Card
                         </Button>
                     </div>
                 </Form>
